@@ -12,6 +12,7 @@ namespace Project_Universe.Domain.src.Entities
     {
         [Key]
         public int id_task { get; set; }
+        public string name_task { get; set; }
         public string comment { get; set; }
         public ICollection<Task_Staff> Task_Staff { get; set; }
         [ForeignKey("Status")]
