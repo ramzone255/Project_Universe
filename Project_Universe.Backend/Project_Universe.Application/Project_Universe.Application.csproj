@@ -24,7 +24,6 @@
     <Folder Include="src\Common\Behaviors\" />
     <Folder Include="src\Common\Dependencies\" />
     <Folder Include="src\Common\Exceptions\" />
-    <Folder Include="src\Common\Mapping\" />
     <Folder Include="src\Entities\" />
   </ItemGroup>
 
