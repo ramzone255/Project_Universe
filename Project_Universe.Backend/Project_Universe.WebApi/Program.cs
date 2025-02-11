@@ -7,6 +7,7 @@ using Project_Universe.Application.src.Common.Dependencies;
 using Project_Universe.Application.src.Common.Mapping;
 using System.Reflection;
 using Project_Universe.Application.src.Interfaces;
+using Project_Universe.WebApi.src.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +19,8 @@ builder.Services.AddAutoMapper(config =>
 builder.Services.AddAplication();
 builder.Services.AddPersistence(builder.Configuration);
 builder.Services.AddControllers();
+builder.Services.AddSwaggerGen();
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll", policy =>
@@ -44,6 +47,13 @@ using (var scope = builder.Services.BuildServiceProvider().CreateScope())
 
 var app = builder.Build();
 
+app.UseSwagger();
+app.UseSwaggerUI(config =>
+{
+    config.RoutePrefix = string.Empty;
+    config.SwaggerEndpoint("swagger/v1/swagger.json", "Project_Universe.Backend");
+});
+app.UseCustomExceptionHandler();
 app.UseRouting();
 app.UseHttpsRedirection();
 app.UseCors("AllowAll");

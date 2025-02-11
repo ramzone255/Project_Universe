@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
@@ -107,6 +108,8 @@ namespace Project_Universe.Persistence.Migrations
                     id_project = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     name_project = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    start_date_project = table.Column<DateOnly>(type: "date", nullable: false),
+                    end_date_project = table.Column<DateOnly>(type: "date", nullable: true),
                     id_contractor_company = table.Column<int>(type: "int", nullable: false),
                     id_customer_company = table.Column<int>(type: "int", nullable: false),
                     id_priority = table.Column<int>(type: "int", nullable: false)

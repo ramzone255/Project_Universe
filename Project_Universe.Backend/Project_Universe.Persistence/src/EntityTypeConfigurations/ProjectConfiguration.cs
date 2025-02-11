@@ -19,6 +19,8 @@ namespace Project_Universe.Persistence.src.EntityTypeConfigurations
             builder.Property(note => note.id_contractor_company).IsRequired();
             builder.Property(note => note.id_customer_company).IsRequired();
             builder.Property(note => note.id_priority).IsRequired();
+            builder.Property(note => note.start_date_project).IsRequired();
+            builder.Property(note => note.end_date_project);
         }
     }
 }

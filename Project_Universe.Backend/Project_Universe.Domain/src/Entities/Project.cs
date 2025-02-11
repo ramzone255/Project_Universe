@@ -13,6 +13,8 @@ namespace Project_Universe.Domain.src.Entities
         [Key]
         public int id_project { get; set; }
         public string name_project { get; set; }
+        public DateOnly start_date_project { get; set; }
+        public DateOnly? end_date_project { get; set; }
         public ICollection<Project_Task> Project_Task { get; set; }
         [ForeignKey("Contractor_Company")]
         public int id_contractor_company { get; set; }
