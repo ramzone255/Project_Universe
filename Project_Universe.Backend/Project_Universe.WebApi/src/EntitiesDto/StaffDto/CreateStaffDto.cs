@@ -21,6 +21,8 @@ namespace Project_Universe.WebApi.src.EntitiesDto.StaffDto
                 opt => opt.MapFrom(entity => entity.lastname_staff))
                 .ForMember(entityDto => entityDto.patronymic_staff,
                 opt => opt.MapFrom(entity => entity.patronymic_staff))
+                .ForMember(entityDto => entityDto.email_staff,
+                opt => opt.MapFrom(entity => entity.email_staff))
                 .ForMember(entityDto => entityDto.id_post,
                 opt => opt.MapFrom(entity => entity.id_post));
         }
