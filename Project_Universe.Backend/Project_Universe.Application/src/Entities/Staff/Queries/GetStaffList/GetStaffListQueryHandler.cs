@@ -22,11 +22,11 @@ namespace Project_Universe.Application.src.Entities.Staff.Queries.GetStaffList
         public async Task<GetStaffListVm> Handle(GetStaffListQuery request,
             CancellationToken cancellationToken)
         {
-            var notesQuery = await _dbContext.Staff
-                .Where(note => note.id_staff == request.id_staff)
+            var entityQuery = await _dbContext.Staff
                 .ProjectTo<GetStaffLookupDto>(_mapper.ConfigurationProvider)
                 .ToListAsync(cancellationToken);
-            return new GetStaffListVm { Staff = notesQuery };
+
+            return new GetStaffListVm { Staff = entityQuery };
         }
     }
 }
