@@ -13,10 +13,10 @@ namespace Project_Universe.Domain.src.Entities
         [Key]
         public int id_project_task { get; set; }
         [ForeignKey("Task")]
-        public int id_task { get; set; }
+        public int? id_task { get; set; }
         public Task Task { get; set; }
         [ForeignKey("Project")]
-        public int id_project { get; set; }
+        public int? id_project { get; set; }
         public Project Project { get; set; }
     }
 }

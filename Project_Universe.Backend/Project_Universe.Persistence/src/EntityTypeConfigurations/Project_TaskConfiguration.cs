@@ -15,8 +15,8 @@ namespace Project_Universe.Persistence.src.EntityTypeConfigurations
         {
             builder.HasKey(note => note.id_project_task);
             builder.HasIndex(note => note.id_project_task).IsUnique();
-            builder.Property(note => note.id_project).IsRequired();
-            builder.Property(note => note.id_task).IsRequired();
+            builder.Property(note => note.id_project);
+            builder.Property(note => note.id_task);
         }
     }
 }
