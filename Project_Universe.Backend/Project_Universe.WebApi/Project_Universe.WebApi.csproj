@@ -25,8 +25,4 @@
     <ProjectReference Include="..\Project_Universe.Persistence\Project_Universe.Persistence.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="src\Middleware\" />
-  </ItemGroup>
-
 </Project>
