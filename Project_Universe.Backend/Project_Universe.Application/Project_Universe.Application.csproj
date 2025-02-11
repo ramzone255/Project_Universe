@@ -23,8 +23,8 @@
   <ItemGroup>
     <Folder Include="src\Common\Behaviors\" />
     <Folder Include="src\Common\Dependencies\" />
-    <Folder Include="src\Common\Exceptions\" />
-    <Folder Include="src\Entities\" />
+    <Folder Include="src\Entities\Staff\Queries\GetStaffDetails\" />
+    <Folder Include="src\Entities\Staff\Queries\GetStaffList\" />
   </ItemGroup>
 
 </Project>
