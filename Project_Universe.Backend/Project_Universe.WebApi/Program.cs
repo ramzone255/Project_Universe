@@ -8,6 +8,9 @@ using Project_Universe.Application.src.Common.Mapping;
 using System.Reflection;
 using Project_Universe.Application.src.Interfaces;
 using Project_Universe.WebApi.src.Middleware;
+using Serilog;
+using Serilog.Events;
+using TelegramSink;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +19,8 @@ builder.Services.AddAutoMapper(config =>
     config.AddProfile(new AssemblyMappingProfile(Assembly.GetExecutingAssembly()));
     config.AddProfile(new AssemblyMappingProfile(typeof(IProject_UniverseDbContext).Assembly));
 });
+
+builder.Services.AddSerilog();
 builder.Services.AddAplication();
 builder.Services.AddPersistence(builder.Configuration);
 builder.Services.AddControllers();
@@ -30,6 +35,13 @@ builder.Services.AddCors(options =>
         policy.AllowAnyOrigin();
     });
 });
+
+Log.Logger = new LoggerConfiguration()
+                .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
+                .WriteTo.TeleSink(
+                telegramApiKey: "*key",
+                telegramChatId: "*id")
+                .CreateLogger();
 
 using (var scope = builder.Services.BuildServiceProvider().CreateScope())
 {
