@@ -12,6 +12,8 @@ namespace Project_Universe.Application.src.Entities.Project.Commands.UpdateProje
         public UpdateProjectCommandValidator()
         {
             RuleFor(updateEntityCommand =>
+            updateEntityCommand.id_project).NotEmpty();
+            RuleFor(updateEntityCommand =>
             updateEntityCommand.name_project).MaximumLength(50).NotEmpty();
             RuleFor(updateEntityCommand =>
             updateEntityCommand.id_contractor_company).NotEmpty();

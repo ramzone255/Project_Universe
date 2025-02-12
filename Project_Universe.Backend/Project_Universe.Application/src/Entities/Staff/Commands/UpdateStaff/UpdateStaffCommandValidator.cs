@@ -12,6 +12,8 @@ namespace Project_Universe.Application.src.Entities.Staff.Commands.UpdateStaff
         public UpdateStaffCommandValidator()
         {
             RuleFor(updateEntityCommand =>
+            updateEntityCommand.id_staff).NotEmpty();
+            RuleFor(updateEntityCommand =>
             updateEntityCommand.name_staff).MaximumLength(50).NotEmpty();
             RuleFor(updateEntityCommand =>
             updateEntityCommand.lastname_staff).MaximumLength(50).NotEmpty();
@@ -20,7 +22,7 @@ namespace Project_Universe.Application.src.Entities.Staff.Commands.UpdateStaff
             RuleFor(updateEntityCommand =>
             updateEntityCommand.email_staff).MaximumLength(50).NotEmpty();
             RuleFor(updateEntityCommand =>
-            updateEntityCommand.id_staff).NotEmpty();
+            updateEntityCommand.id_post).NotEmpty();
         }
     }
 }
