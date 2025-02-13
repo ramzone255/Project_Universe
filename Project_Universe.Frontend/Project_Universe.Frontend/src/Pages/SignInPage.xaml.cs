@@ -20,16 +20,16 @@ namespace Project_Universe.Frontend.src.Pages
     /// <summary>
     /// Логика взаимодействия для SingInPage.xaml
     /// </summary>
-    public partial class SingInPage : Page
+    public partial class SignInPage : Page
     {
         private readonly ApiService _apiService;
-        public SingInPage()
+        public SignInPage()
         {
             InitializeComponent();
             _apiService = new ApiService();
         }
 
-        private async void SingInClick(object sender, RoutedEventArgs e)
+        private async void SignInClick(object sender, RoutedEventArgs e)
         {
             string User_name = TBoxUserName.Text;
             string User_password = TBoxUserPassword.Text;
