@@ -37,6 +37,7 @@ namespace Project_Universe.Frontend.src.Pages
                 var user = await _apiService.SignIn(User_name, User_password);
                 if (user != null)
                 {
+                    UserSession.CurrentUser = user;
                     NavigationService.Navigate(new StaffPage());
                 }
                 else
