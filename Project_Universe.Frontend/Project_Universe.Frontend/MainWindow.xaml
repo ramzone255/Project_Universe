@@ -5,8 +5,47 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project_Universe.Frontend"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        MouseDown="Window_moving">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="48"/>
+            <RowDefinition Height="403"/>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="1">
+            <Frame x:Name="MainFrame" Source=".\src\Pages\SignInPage.xaml" NavigationUIVisibility="Hidden" 
+       VerticalAlignment="Top"/>
+        </Border>
+        <StackPanel Grid.Row="0" Background="#88407f">
+            <TextBlock Height="70"
+           Width="550"
+           Text="Project Universe"
+           FontSize="46"
+           Foreground="#575c76"
+           FontWeight="Heavy"
+           Background="#a9e4ee"
+           FontStyle="Italic"
+           TextAlignment="Center"
+           Margin="0,-15,0,0"/>
+            <Button Height="40" Width="40" Margin="650,-64,-100,0" Background="#88407f" Style="{StaticResource RoundButtonTemplate}" Click="Close_Click">
+                <Image Source="/src/Images/Close_Img.png" Height="40" Width="40" Margin="-2,-2,0,0"/>
+                <Button.ToolTip>
+                    <ToolTip Height="30" Style="{StaticResource RoundToolsTemplate2}">
+                        ㅤㅤЗакрытьㅤㅤ
+                    </ToolTip>
+                </Button.ToolTip>
+            </Button>
+            <Button Height="40" Width="40" Margin="570,-61,-100,0" Background="#88407f" Style="{StaticResource RoundButtonTemplate}" Click="RollUp_Click">
+                <Image Source="/src/Images/Roll-Up_Img.png" Height="40" Width="40" Margin="-2,-3,0,0"/>
+                <Button.ToolTip>
+                    <ToolTip Height="30" Style="{StaticResource RoundToolsTemplate2}">
+                        ㅤㅤСвернутьㅤㅤ
+                    </ToolTip>
+                </Button.ToolTip>
+            </Button>
+            <Image Source="/src/Images/Logo_Img.png" Height="50" Width="50" Margin="0,-60,673,0"/>
+        </StackPanel>
     </Grid>
 </Window>

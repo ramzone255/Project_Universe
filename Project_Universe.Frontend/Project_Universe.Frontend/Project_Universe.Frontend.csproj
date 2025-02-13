@@ -89,7 +89,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="src\Data\Entities\Login.cs" />
+    <Compile Include="src\Data\Entities\User.cs" />
     <Compile Include="src\Data\Services\ApiService.cs" />
+    <Compile Include="src\Pages\SignInPage.xaml.cs">
+      <DependentUpon>SignInPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\Pages\StaffPage.xaml.cs">
+      <DependentUpon>StaffPage.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -102,6 +110,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="src\Pages\SignInPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\Pages\StaffPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -131,10 +147,19 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="src\Data\Entities\" />
     <Folder Include="src\Files\" />
-    <Folder Include="src\Images\" />
-    <Folder Include="src\Pages\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="src\Images\Close_Img.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="src\Images\Roll-Up_Img.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="src\Images\Logo_Img.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="src\Images\SignIn_Img.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
