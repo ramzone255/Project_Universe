@@ -19,7 +19,10 @@ namespace Project_Universe.Persistence.src.EntityTypeConfigurations
             builder.Property(note => note.lastname_staff).HasMaxLength(50);
             builder.Property(note => note.patronymic_staff).HasMaxLength(50);
             builder.Property(note => note.email_staff).HasMaxLength(50);
-            builder.Property(note => note.id_post).IsRequired();
+            builder.HasOne(note => note.Post)
+                .WithMany(note => note.Staff)
+                .HasForeignKey(note => note.id_post)
+                .IsRequired();
         }
     }
 }

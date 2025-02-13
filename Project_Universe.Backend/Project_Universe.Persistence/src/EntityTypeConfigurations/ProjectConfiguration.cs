@@ -18,6 +18,14 @@ namespace Project_Universe.Persistence.src.EntityTypeConfigurations
             builder.Property(note => note.name_project).HasMaxLength(50);
             builder.Property(note => note.id_contractor_company).IsRequired();
             builder.Property(note => note.id_customer_company).IsRequired();
+            builder.HasOne(note => note.Contractor_Company)
+                .WithMany(note => note.Project)
+                .HasForeignKey(note => note.id_contractor_company)
+                .IsRequired();
+            builder.HasOne(note => note.Customer_Company)
+                .WithMany(note => note.Project)
+                .HasForeignKey(note => note.id_customer_company)
+                .IsRequired();
             builder.Property(note => note.id_priority).IsRequired();
             builder.Property(note => note.start_date_project).IsRequired();
             builder.Property(note => note.end_date_project);

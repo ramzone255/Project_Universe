@@ -15,8 +15,16 @@ namespace Project_Universe.Persistence.src.EntityTypeConfigurations
         {
             builder.HasKey(note => note.id_project_task);
             builder.HasIndex(note => note.id_project_task).IsUnique();
-            builder.Property(note => note.id_project);
-            builder.Property(note => note.id_task);
+            builder.HasOne(note => note.Project)
+                .WithMany(note => note.Project_Task)
+                .HasForeignKey(note => note.id_project)
+                .OnDelete(DeleteBehavior.SetNull)
+                .IsRequired(false);
+            builder.HasOne(note => note.Task)
+                .WithMany(note => note.Project_Task)
+                .HasForeignKey(note => note.id_task)
+                .OnDelete(DeleteBehavior.SetNull)
+                .IsRequired(false);
         }
     }
 }

@@ -16,7 +16,7 @@ namespace Project_Universe.WebApi.src.Controllers
 
         public StaffController(IMapper mapper) => _mapper = mapper;
 
-        [HttpGet]
+        [HttpGet("List")]
         public async Task<ActionResult<GetStaffListVm>> GetAllStaffs()
         {
             var query = new GetStaffListQuery();
@@ -24,7 +24,7 @@ namespace Project_Universe.WebApi.src.Controllers
             return Ok(vm);
         }
 
-        [HttpGet("{id_staff}")]
+        [HttpGet("Details/{id_staff}")]
         public async Task<ActionResult<GetStaffDetailsVm>> GetStaffDetails(int id_staff)
         {
             var query = new GetStaffDetailsQuery
@@ -35,7 +35,7 @@ namespace Project_Universe.WebApi.src.Controllers
             return Ok(vm);
         }
 
-        [HttpPost]
+        [HttpPost("Create")]
         public async Task<ActionResult<int>> CreateStaff([FromBody] CreateStaffDto createStaffDto)
         {
             var command = _mapper.Map<CreateStaffCommand>(createStaffDto);
@@ -43,7 +43,7 @@ namespace Project_Universe.WebApi.src.Controllers
             return Ok(id_staff);
         }
 
-        [HttpPut("{id_staff}")]
+        [HttpPut("Update/{id_staff}")]
         public async Task<IActionResult> UpdateStaff(int id_staff, [FromBody] UpdateStaffDto updateStaffDto)
         {
             var command = _mapper.Map<UpdateStaffCommand>(updateStaffDto);
@@ -52,7 +52,7 @@ namespace Project_Universe.WebApi.src.Controllers
             return NoContent();
         }
 
-        [HttpDelete("{id_staff}")]
+        [HttpDelete("Delete/{id_staff}")]
         public async Task<IActionResult> DeleteStaff(int id_staff)
         {
             var command = new DeleteStaffCommand

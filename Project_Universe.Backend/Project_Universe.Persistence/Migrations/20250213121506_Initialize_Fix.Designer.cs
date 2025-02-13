@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Project_Universe.Persistence.src.Data;
 
@@ -11,9 +12,11 @@ using Project_Universe.Persistence.src.Data;
 namespace Project_Universe.Persistence.Migrations
 {
     [DbContext(typeof(Project_UniverseDbContext))]
-    partial class Project_UniverseDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250213121506_Initialize_Fix")]
+    partial class Initialize_Fix
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

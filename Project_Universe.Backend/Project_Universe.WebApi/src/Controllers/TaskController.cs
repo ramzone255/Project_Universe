@@ -22,7 +22,7 @@ namespace Project_Universe.WebApi.src.Controllers
 
         public TaskController(IMapper mapper) => _mapper = mapper;
 
-        [HttpGet]
+        [HttpGet("List")]
         public async Task<ActionResult<GetTaskListVm>> GetAllTasks()
         {
             var query = new GetTaskListQuery();
@@ -30,7 +30,7 @@ namespace Project_Universe.WebApi.src.Controllers
             return Ok(vm);
         }
 
-        [HttpGet("{id_task}")]
+        [HttpGet("Details/{id_task}")]
         public async Task<ActionResult<GetTaskDetailsVm>> GetTaskDetails(int id_task)
         {
             var query = new GetTaskDetailsQuery
@@ -41,7 +41,7 @@ namespace Project_Universe.WebApi.src.Controllers
             return Ok(vm);
         }
 
-        [HttpPost]
+        [HttpPost("Create")]
         public async Task<ActionResult<int>> CreateTask([FromBody] CreateTaskDto createTaskDto)
         {
             var command = _mapper.Map<CreateTaskCommand>(createTaskDto);
@@ -49,7 +49,7 @@ namespace Project_Universe.WebApi.src.Controllers
             return Ok(id_task);
         }
 
-        [HttpPut("{id_task}")]
+        [HttpPut("Update/{id_task}")]
         public async Task<IActionResult> UpdateTask(int id_task, [FromBody] UpdateTaskDto updateTaskDto)
         {
             var command = _mapper.Map<UpdateTaskCommand>(updateTaskDto);
@@ -58,7 +58,7 @@ namespace Project_Universe.WebApi.src.Controllers
             return NoContent();
         }
 
-        [HttpDelete("{id_task}")]
+        [HttpDelete("Delete/{id_task}")]
         public async Task<IActionResult> DeleteTask(int id_task)
         {
             var command = new DeleteTaskCommand

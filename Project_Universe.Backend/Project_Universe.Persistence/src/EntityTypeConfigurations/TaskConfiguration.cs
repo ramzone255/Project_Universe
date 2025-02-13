@@ -17,8 +17,14 @@ namespace Project_Universe.Persistence.src.EntityTypeConfigurations
             builder.HasIndex(note => note.id_task).IsUnique();
             builder.Property(note => note.name_task).HasMaxLength(50);
             builder.Property(note => note.comment).HasMaxLength(250);
-            builder.Property(note => note.id_status).IsRequired();
-            builder.Property(note => note.id_priority).IsRequired();
+            builder.HasOne(note => note.Status)
+                .WithMany(note => note.Task)
+                .HasForeignKey(note => note.id_status)
+                .IsRequired();
+            builder.HasOne(note => note.Priority)
+                .WithMany(note => note.Task)
+                .HasForeignKey(note => note.id_priority)
+                .IsRequired();
         }
     }
 }

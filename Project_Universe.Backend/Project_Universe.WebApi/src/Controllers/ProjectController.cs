@@ -22,7 +22,7 @@ namespace Project_Universe.WebApi.src.Controllers
 
         public ProjectController(IMapper mapper) => _mapper = mapper;
 
-        [HttpGet]
+        [HttpGet("List")]
         public async Task<ActionResult<GetProjectListVm>> GetAllProject()
         {
             var query = new GetProjectListQuery();
@@ -30,7 +30,7 @@ namespace Project_Universe.WebApi.src.Controllers
             return Ok(vm);
         }
 
-        [HttpGet("{id_project}")]
+        [HttpGet("Details/{id_project}")]
         public async Task<ActionResult<GetProjectDetailsVm>> GetProjectDetails(int id_project)
         {
             var query = new GetProjectDetailsQuery
@@ -41,7 +41,7 @@ namespace Project_Universe.WebApi.src.Controllers
             return Ok(vm);
         }
 
-        [HttpPost]
+        [HttpPost("Create")]
         public async Task<ActionResult<int>> CreateProject([FromBody] CreateProjectDto createProjectDto)
         {
             var command = _mapper.Map<CreateProjectCommand>(createProjectDto);
@@ -49,7 +49,7 @@ namespace Project_Universe.WebApi.src.Controllers
             return Ok(id_project);
         }
 
-        [HttpPut("{id_project}")]
+        [HttpPut("Update/{id_project}")]
         public async Task<IActionResult> UpdateProject(int id_project, [FromBody] UpdateProjectDto updateProjectDto)
         {
             var command = _mapper.Map<UpdateProjectCommand>(updateProjectDto);
@@ -58,7 +58,7 @@ namespace Project_Universe.WebApi.src.Controllers
             return NoContent();
         }
 
-        [HttpDelete("{id_project}")]
+        [HttpDelete("Delete/{id_project}")]
         public async Task<IActionResult> DeleteProject(int id_project)
         {
             var command = new DeleteProjectCommand

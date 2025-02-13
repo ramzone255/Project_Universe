@@ -17,7 +17,11 @@ namespace Project_Universe.Persistence.src.EntityTypeConfigurations
             builder.HasIndex(note => note.id_user).IsUnique();
             builder.Property(note => note.user_name).HasMaxLength(20);
             builder.Property(note => note.user_password).HasMaxLength(20);
-            builder.Property(note => note.id_staff).IsRequired();
+            builder.HasOne(note => note.Staff)
+                .WithMany(note => note.User)
+                .HasForeignKey(note => note.id_staff)
+                .OnDelete(DeleteBehavior.Cascade)
+                .IsRequired();
         }
     }
 }
