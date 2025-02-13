@@ -89,8 +89,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="src\Data\Entities\User.cs" />
-    <Compile Include="src\Data\Entities\UserSession.cs" />
+    <Compile Include="src\Data\Entities\Staff\StaffContain.cs" />
+    <Compile Include="src\Data\Entities\Staff\Staff.cs" />
+    <Compile Include="src\Data\Entities\User\User.cs" />
+    <Compile Include="src\Data\Entities\User\UserSession.cs" />
     <Compile Include="src\Data\Services\ApiService.cs" />
     <Compile Include="src\Pages\SignInPage.xaml.cs">
       <DependentUpon>SignInPage.xaml</DependentUpon>

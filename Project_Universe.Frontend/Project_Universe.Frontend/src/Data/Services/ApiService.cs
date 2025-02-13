@@ -1,4 +1,5 @@
 ﻿using Project_Universe.Frontend.src.Data.Entities;
+using Project_Universe.Frontend.src.Data.Entities.Entities_Contain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,6 +31,16 @@ namespace Project_Universe.Frontend.src.Data.Services
                 return await response.Content.ReadFromJsonAsync<User>();
             }
             return null;
+        }
+
+        internal async Task<List<Staff>> GetStaffList()
+        {
+            var response = await _httpClient.GetAsync("api/Staff/List");
+            response.EnsureSuccessStatusCode();
+
+            var result = await response.Content.ReadFromJsonAsync<StaffContain>();
+            return result?.staff ?? new List<Staff>();
+
         }
 
     }
