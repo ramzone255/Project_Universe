@@ -65,6 +65,14 @@
                             </ToolTip>
                         </Button.ToolTip>
                     </Button>
+                    <Button Height="50" Width="50" Background="Transparent" Margin="245,-50,0,0" HorizontalAlignment="Left" Click="DeleteClick">
+                        <Image Source="/src/Images/Delete.png"/>
+                        <Button.ToolTip>
+                            <ToolTip Height="30" Style="{StaticResource RoundToolsTemplate}">
+                                ㅤㅤУдалить сотрудника
+                            </ToolTip>
+                        </Button.ToolTip>
+                    </Button>
                 </StackPanel>
                 <StackPanel Width="362" Margin="0,-83,0,0" HorizontalAlignment="Right" Height="83">
                     

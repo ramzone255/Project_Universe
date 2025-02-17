@@ -58,6 +58,12 @@ namespace Project_Universe.Frontend.src.Data.Services
             response.EnsureSuccessStatusCode();
         }
 
+        public async Task DeleteStaff(int id_staff)
+        {
+            var response = await _httpClient.DeleteAsync($"api/Staff/Delete/{id_staff}");
+            response.EnsureSuccessStatusCode();
+        }
+
         // Post Entity
 
         public async Task<List<Post>> GetPostList()

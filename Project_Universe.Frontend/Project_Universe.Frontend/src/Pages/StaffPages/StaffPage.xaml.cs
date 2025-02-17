@@ -62,5 +62,30 @@ namespace Project_Universe.Frontend.src.Pages
                 MessageBox.Show("Выберите сотрудника для редактирования");
             }
         }
+
+        private async void DeleteClick(object sender, RoutedEventArgs e)
+        {
+            if (StaffListView.SelectedItem is Staff selectedStaff)
+            {
+                var result = MessageBox.Show($"Вы уверены, что хотите удалить сотрудника {selectedStaff.lastname_staff} {selectedStaff.name_staff}?", "Подтверждение удаления", MessageBoxButton.YesNo);
+                if (result == MessageBoxResult.Yes)
+                {
+                    try
+                    {
+                        await _apiService.DeleteStaff(selectedStaff.id_staff);
+                        MessageBox.Show("Сотрудник успешно удален.");
+                        await LoadStaff();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Ошибка при удалении сотрудника: {ex.Message}");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Выберите сотрудника для удаления.");
+            }
+        }
     }
 }
