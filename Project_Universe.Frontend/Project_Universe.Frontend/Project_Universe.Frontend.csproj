@@ -91,8 +91,14 @@
     </ApplicationDefinition>
     <Compile Include="src\Data\Entities\Post\Post.cs" />
     <Compile Include="src\Data\Entities\Post\PostContain.cs" />
+    <Compile Include="src\Data\Entities\Priority\Priority.cs" />
+    <Compile Include="src\Data\Entities\Priority\PriorityContain.cs" />
     <Compile Include="src\Data\Entities\Staff\StaffContain.cs" />
     <Compile Include="src\Data\Entities\Staff\Staff.cs" />
+    <Compile Include="src\Data\Entities\Status\Status.cs" />
+    <Compile Include="src\Data\Entities\Status\StatusContain.cs" />
+    <Compile Include="src\Data\Entities\Task_Entity\Task_Entity.cs" />
+    <Compile Include="src\Data\Entities\Task_Entity\Task_EntityContain.cs" />
     <Compile Include="src\Data\Entities\User\User.cs" />
     <Compile Include="src\Data\Entities\User\UserSession.cs" />
     <Compile Include="src\Data\Services\ApiService.cs" />
@@ -104,6 +110,12 @@
     </Compile>
     <Compile Include="src\Pages\StaffPages\StaffPage.xaml.cs">
       <DependentUpon>StaffPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\Pages\TaskPages\TaskCommandsPage.xaml.cs">
+      <DependentUpon>TaskCommandsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\Pages\TaskPages\TaskPage.xaml.cs">
+      <DependentUpon>TaskPage.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -126,6 +138,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="src\Pages\StaffPages\StaffPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\Pages\TaskPages\TaskCommandsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\Pages\TaskPages\TaskPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -186,6 +206,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="src\Images\Delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="src\Images\Project.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="src\Images\Task.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="src\Images\Staff.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

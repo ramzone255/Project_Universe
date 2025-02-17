@@ -15,7 +15,9 @@ namespace Project_Universe.Application.src.Entities.Task_Entity.Queries.GetTaskL
         public string name_task { get; set; }
         public string comment { get; set; }
         public int id_status { get; set; }
+        public string name_status { get; set; }
         public int id_priority { get; set; }
+        public string name_priority { get; set; }
 
         public void Mapping(Profile profile)
         {
@@ -29,7 +31,11 @@ namespace Project_Universe.Application.src.Entities.Task_Entity.Queries.GetTaskL
                 .ForMember(noteVm => noteVm.id_status,
                 opt => opt.MapFrom(note => note.id_status))
                 .ForMember(noteVm => noteVm.id_priority,
-                opt => opt.MapFrom(note => note.id_priority));
+                opt => opt.MapFrom(note => note.id_priority))
+                .ForMember(noteVm => noteVm.name_status,
+                opt => opt.MapFrom(note => note.Status.name_status))
+                .ForMember(noteVm => noteVm.name_priority,
+                opt => opt.MapFrom(note => note.Priority.name_priority));
         }
     }
 }

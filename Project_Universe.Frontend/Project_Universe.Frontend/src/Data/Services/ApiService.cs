@@ -1,6 +1,9 @@
 ﻿using Project_Universe.Frontend.src.Data.Entities;
 using Project_Universe.Frontend.src.Data.Entities.Entities_Contain;
 using Project_Universe.Frontend.src.Data.Entities.Post;
+using Project_Universe.Frontend.src.Data.Entities.Priority;
+using Project_Universe.Frontend.src.Data.Entities.Status;
+using Project_Universe.Frontend.src.Data.Entities.Task_Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -76,5 +79,58 @@ namespace Project_Universe.Frontend.src.Data.Services
 
         }
 
+        // Priority Entity
+
+        public async Task<List<Priority>> GetPriorityList()
+        {
+            var response = await _httpClient.GetAsync("api/Priority/List");
+            response.EnsureSuccessStatusCode();
+
+            var result = await response.Content.ReadFromJsonAsync<PriorityContain>();
+            return result?.priority ?? new List<Priority>();
+
+        }
+
+        // Status Entity
+
+        public async Task<List<Status>> GetStatusList()
+        {
+            var response = await _httpClient.GetAsync("api/Status/List");
+            response.EnsureSuccessStatusCode();
+
+            var result = await response.Content.ReadFromJsonAsync<StatusContain>();
+            return result?.status ?? new List<Status>();
+
+        }
+
+        // Task Entity
+
+        public async Task<List<Task_Entity>> GetTaskList()
+        {
+            var response = await _httpClient.GetAsync("api/Task/List");
+            response.EnsureSuccessStatusCode();
+
+            var result = await response.Content.ReadFromJsonAsync<Task_EntityContain>();
+            return result?.task ?? new List<Task_Entity>();
+
+        }
+
+        public async Task CreateTask(Task_Entity task_entity)
+        {
+            var response = await _httpClient.PostAsJsonAsync($"api/Task/Create", task_entity);
+            response.EnsureSuccessStatusCode();
+        }
+
+        public async Task UpdateTask(Task_Entity task_entity)
+        {
+            var response = await _httpClient.PutAsJsonAsync($"api/Task/Update/{task_entity.id_task}", task_entity);
+            response.EnsureSuccessStatusCode();
+        }
+
+        public async Task DeleteTask(int id_task)
+        {
+            var response = await _httpClient.DeleteAsync($"api/Task/Delete/{id_task}");
+            response.EnsureSuccessStatusCode();
+        }
     }
 }

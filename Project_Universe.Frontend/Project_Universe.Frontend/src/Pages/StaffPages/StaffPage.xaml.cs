@@ -1,6 +1,7 @@
 ﻿using Project_Universe.Frontend.src.Data.Entities;
 using Project_Universe.Frontend.src.Data.Services;
 using Project_Universe.Frontend.src.Pages.StaffPages;
+using Project_Universe.Frontend.src.Pages.TaskPages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -86,6 +87,16 @@ namespace Project_Universe.Frontend.src.Pages
             {
                 MessageBox.Show("Выберите сотрудника для удаления.");
             }
+        }
+
+        private void ProjectClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void TaskClick(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new TaskPage());
         }
     }
 }
