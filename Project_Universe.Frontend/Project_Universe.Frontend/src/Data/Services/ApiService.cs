@@ -1,5 +1,6 @@
 ﻿using Project_Universe.Frontend.src.Data.Entities;
 using Project_Universe.Frontend.src.Data.Entities.Entities_Contain;
+using Project_Universe.Frontend.src.Data.Entities.Post;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,13 +34,39 @@ namespace Project_Universe.Frontend.src.Data.Services
             return null;
         }
 
-        internal async Task<List<Staff>> GetStaffList()
+        // Staff Entity
+
+        public async Task<List<Staff>> GetStaffList()
         {
             var response = await _httpClient.GetAsync("api/Staff/List");
             response.EnsureSuccessStatusCode();
 
             var result = await response.Content.ReadFromJsonAsync<StaffContain>();
             return result?.staff ?? new List<Staff>();
+
+        }
+
+        public async Task CreateStaff(Staff staff)
+        {
+            var response = await _httpClient.PostAsJsonAsync($"api/Staff/Create", staff);
+            response.EnsureSuccessStatusCode();
+        }
+
+        public async Task UpdateStaff(Staff staff)
+        {
+            var response = await _httpClient.PutAsJsonAsync($"api/Staff/Update/{staff.id_staff}", staff);
+            response.EnsureSuccessStatusCode();
+        }
+
+        // Post Entity
+
+        public async Task<List<Post>> GetPostList()
+        {
+            var response = await _httpClient.GetAsync("api/Post/List");
+            response.EnsureSuccessStatusCode();
+
+            var result = await response.Content.ReadFromJsonAsync<PostContain>();
+            return result?.post ?? new List<Post>();
 
         }
 

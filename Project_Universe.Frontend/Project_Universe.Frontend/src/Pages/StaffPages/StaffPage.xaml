@@ -49,7 +49,22 @@
                     </LinearGradientBrush>
                 </StackPanel.Background>
                 <StackPanel Width="362" HorizontalAlignment="Left" Height="83">
-                    
+                    <Button Height="50" Width="50" Background="Transparent" Margin="20,20,0,0" HorizontalAlignment="Left" Click="AddClick">
+                        <Image Source="/src/Images/Add.png"/>
+                        <Button.ToolTip>
+                            <ToolTip Height="30" Style="{StaticResource RoundToolsTemplate}">
+                                ㅤㅤДобавить сотрудникаㅤㅤ
+                            </ToolTip>
+                        </Button.ToolTip>
+                    </Button>
+                    <Button Height="50" Width="50" Background="Transparent" Margin="132,-50,0,0" HorizontalAlignment="Left" Click="UpdateClick">
+                        <Image Source="/src/Images/Update.png"/>
+                        <Button.ToolTip>
+                            <ToolTip Height="30" Style="{StaticResource RoundToolsTemplate}">
+                                ㅤㅤРедактироватьㅤсотрудникаㅤ
+                            </ToolTip>
+                        </Button.ToolTip>
+                    </Button>
                 </StackPanel>
                 <StackPanel Width="362" Margin="0,-83,0,0" HorizontalAlignment="Right" Height="83">
                     

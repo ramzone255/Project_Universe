@@ -1,5 +1,6 @@
 ﻿using Project_Universe.Frontend.src.Data.Entities;
 using Project_Universe.Frontend.src.Data.Services;
+using Project_Universe.Frontend.src.Pages.StaffPages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,7 +42,24 @@ namespace Project_Universe.Frontend.src.Pages
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ошибка загрузки продуктов: {ex.Message}");
+                MessageBox.Show($"Ошибка загрузки сотрудников: {ex.Message}");
+            }
+        }
+
+        private void AddClick(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new StaffCommandsPage());
+        }
+
+        private void UpdateClick(object sender, RoutedEventArgs e)
+        {
+            if (StaffListView.SelectedItem is Staff selectedStaff)
+            {
+                NavigationService.Navigate(new StaffCommandsPage(selectedStaff));
+            }
+            else
+            {
+                MessageBox.Show("Выберите сотрудника для редактирования");
             }
         }
     }
