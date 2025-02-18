@@ -13,7 +13,9 @@ namespace Project_Universe.Application.src.Entities.Project_Task.Queries.GetProj
     {
         public int id_project_task { get; set; }
         public int? id_task { get; set; }
+        public string? name_task { get; set; }
         public int? id_project { get; set; }
+        public string? name_project { get; set; }
 
         public void Mapping(Profile profile)
         {
@@ -23,7 +25,11 @@ namespace Project_Universe.Application.src.Entities.Project_Task.Queries.GetProj
                 .ForMember(noteDto => noteDto.id_task,
                 opt => opt.MapFrom(note => note.id_task))
                 .ForMember(noteDto => noteDto.id_project,
-                opt => opt.MapFrom(note => note.id_project));
+                opt => opt.MapFrom(note => note.id_project))
+                .ForMember(noteDto => noteDto.name_project,
+                opt => opt.MapFrom(note => note.Project.name_project))
+                .ForMember(noteDto => noteDto.name_task,
+                opt => opt.MapFrom(note => note.Task.name_task));
         }
     }
 }

@@ -73,7 +73,7 @@ namespace Project_Universe.Frontend.src.Pages.Task_StaffPages
             }
             else
             {
-                MessageBox.Show("Выберите задание для удаления.");
+                MessageBox.Show("Выберите прикрепление для удаления.");
             }
         }
 

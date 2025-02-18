@@ -5,6 +5,7 @@ using Project_Universe.Frontend.src.Data.Entities.Entities_Contain;
 using Project_Universe.Frontend.src.Data.Entities.Post;
 using Project_Universe.Frontend.src.Data.Entities.Priority;
 using Project_Universe.Frontend.src.Data.Entities.Project;
+using Project_Universe.Frontend.src.Data.Entities.Project_Task;
 using Project_Universe.Frontend.src.Data.Entities.Status;
 using Project_Universe.Frontend.src.Data.Entities.Task_Entity;
 using Project_Universe.Frontend.src.Data.Entities.Task_Staff;
@@ -218,6 +219,36 @@ namespace Project_Universe.Frontend.src.Data.Services
         public async Task DeleteProject(int id_project)
         {
             var response = await _httpClient.DeleteAsync($"api/Project/Delete/{id_project}");
+            response.EnsureSuccessStatusCode();
+        }
+
+        // Project_Task Entity
+
+        public async Task<List<Project_Task>> GetProject_TaskList()
+        {
+            var response = await _httpClient.GetAsync("api/Project_Task/List");
+            response.EnsureSuccessStatusCode();
+
+            var result = await response.Content.ReadFromJsonAsync<Project_TaskContain>();
+            return result?.project_task ?? new List<Project_Task>();
+
+        }
+
+        public async Task CreateProject_Task(Project_Task project_task)
+        {
+            var response = await _httpClient.PostAsJsonAsync($"api/Project_Task/Create", project_task);
+            response.EnsureSuccessStatusCode();
+        }
+
+        public async Task UpdateProject_Task(Project_Task project_task)
+        {
+            var response = await _httpClient.PutAsJsonAsync($"api/Project_Task/Update/{project_task.id_project_task}", project_task);
+            response.EnsureSuccessStatusCode();
+        }
+
+        public async Task DeleteProject_Task(int id_project_task)
+        {
+            var response = await _httpClient.DeleteAsync($"api/Project_Task/Delete/{id_project_task}");
             response.EnsureSuccessStatusCode();
         }
     }

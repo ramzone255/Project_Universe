@@ -99,6 +99,8 @@
     <Compile Include="src\Data\Entities\Priority\PriorityContain.cs" />
     <Compile Include="src\Data\Entities\Project\Project.cs" />
     <Compile Include="src\Data\Entities\Project\ProjectContain.cs" />
+    <Compile Include="src\Data\Entities\Project_Task\Project_Task.cs" />
+    <Compile Include="src\Data\Entities\Project_Task\Project_TaskContain.cs" />
     <Compile Include="src\Data\Entities\Staff\StaffContain.cs" />
     <Compile Include="src\Data\Entities\Staff\Staff.cs" />
     <Compile Include="src\Data\Entities\Status\Status.cs" />
@@ -115,6 +117,12 @@
     </Compile>
     <Compile Include="src\Pages\ProjectPages\ProjectPage.xaml.cs">
       <DependentUpon>ProjectPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\Pages\Project_TaskPages\Project_TaskCommandsPage.xaml.cs">
+      <DependentUpon>Project_TaskCommandsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\Pages\Project_TaskPages\Project_TaskPage.xaml.cs">
+      <DependentUpon>Project_TaskPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="src\Pages\SignInPage.xaml.cs">
       <DependentUpon>SignInPage.xaml</DependentUpon>
@@ -154,6 +162,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="src\Pages\ProjectPages\ProjectPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\Pages\Project_TaskPages\Project_TaskCommandsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\Pages\Project_TaskPages\Project_TaskPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -254,6 +270,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="src\Images\Task_Staff_Img.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="src\Images\Project_Task.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

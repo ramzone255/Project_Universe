@@ -1,6 +1,7 @@
 ﻿using Project_Universe.Frontend.src.Data.Entities;
 using Project_Universe.Frontend.src.Data.Entities.Project;
 using Project_Universe.Frontend.src.Data.Services;
+using Project_Universe.Frontend.src.Pages.Project_TaskPages;
 using Project_Universe.Frontend.src.Pages.StaffPages;
 using Project_Universe.Frontend.src.Pages.TaskPages;
 using System;
@@ -85,7 +86,7 @@ namespace Project_Universe.Frontend.src.Pages.ProjectPages
                     try
                     {
                         await _apiService.DeleteProject(selectedProject.id_project);
-                        MessageBox.Show("Сотрудник успешно удален.");
+                        MessageBox.Show("Проект успешно удален.");
                         await LoadProject();
                     }
                     catch (Exception ex)
@@ -102,7 +103,7 @@ namespace Project_Universe.Frontend.src.Pages.ProjectPages
 
         private void Project_TaskClick(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new Project_TaskPage());
         }
     }
 }
