@@ -65,7 +65,7 @@
                     </LinearGradientBrush>
                 </StackPanel.Background>
                 <StackPanel Width="362" HorizontalAlignment="Left" Height="83">
-                    <Button Height="50" Width="50" Background="Transparent" Margin="20,20,0,0" HorizontalAlignment="Left" Click="AddClick">
+                    <Button x:Name="AddButton" Height="50" Width="50" Background="Transparent" Margin="20,20,0,0" HorizontalAlignment="Left" Click="AddClick">
                         <Image Source="/src/Images/Add.png"/>
                         <Button.ToolTip>
                             <ToolTip Height="30" Style="{StaticResource RoundToolsTemplate}">
@@ -73,7 +73,7 @@
                             </ToolTip>
                         </Button.ToolTip>
                     </Button>
-                    <Button Height="50" Width="50" Background="Transparent" Margin="132,-50,0,0" HorizontalAlignment="Left" Click="UpdateClick">
+                    <Button x:Name="UpdateButton" Height="50" Width="50" Background="Transparent" Margin="132,-50,0,0" HorizontalAlignment="Left" Click="UpdateClick">
                         <Image Source="/src/Images/Update.png"/>
                         <Button.ToolTip>
                             <ToolTip Height="30" Style="{StaticResource RoundToolsTemplate}">
@@ -81,7 +81,7 @@
                             </ToolTip>
                         </Button.ToolTip>
                     </Button>
-                    <Button Height="50" Width="50" Background="Transparent" Margin="245,-50,0,0" HorizontalAlignment="Left" Click="DeleteClick">
+                    <Button x:Name="DeleteButton" Height="50" Width="50" Background="Transparent" Margin="245,-50,0,0" HorizontalAlignment="Left" Click="DeleteClick">
                         <Image Source="/src/Images/Delete.png"/>
                         <Button.ToolTip>
                             <ToolTip Height="30" Style="{StaticResource RoundToolsTemplate}">

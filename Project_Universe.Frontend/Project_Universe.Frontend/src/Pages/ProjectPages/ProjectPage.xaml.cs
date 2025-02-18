@@ -42,6 +42,19 @@ namespace Project_Universe.Frontend.src.Pages.ProjectPages
             {
                 _allProject = await _apiService.GetProjectList();
                 ProjectListView.ItemsSource = _allProject.OrderByDescending(x => x.id_priority);
+                int id_postUser = UserSession.CurrentUser.id_post;
+                if (id_postUser > 1)
+                {
+                    AddButton.Visibility = Visibility.Hidden;
+                    UpdateButton.Visibility = Visibility.Hidden;
+                    DeleteButton.Visibility = Visibility.Hidden;
+                }
+                else
+                {
+                    AddButton.Visibility = Visibility.Visible;
+                    UpdateButton.Visibility = Visibility.Visible;
+                    DeleteButton.Visibility = Visibility.Visible;
+                }
             }
             catch (Exception ex)
             {

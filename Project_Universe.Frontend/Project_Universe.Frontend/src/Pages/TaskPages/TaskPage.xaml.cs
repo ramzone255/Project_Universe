@@ -41,6 +41,17 @@ namespace Project_Universe.Frontend.src.Pages.TaskPages
             {
                 _allTask = await _apiService.GetTaskList();
                 TaskListView.ItemsSource = _allTask.OrderByDescending(x => x.id_priority);
+                int id_postUser = UserSession.CurrentUser.id_post;
+                if (id_postUser == 3)
+                {
+                    AddButton.Visibility = Visibility.Hidden;
+                    DeleteButton.Visibility = Visibility.Hidden;
+                }
+                else
+                {
+                    AddButton.Visibility = Visibility.Visible;
+                    DeleteButton.Visibility = Visibility.Visible;
+                }
             }
             catch (Exception ex)
             {

@@ -1,4 +1,5 @@
-﻿using Project_Universe.Frontend.src.Data.Entities.Project_Task;
+﻿using Project_Universe.Frontend.src.Data.Entities;
+using Project_Universe.Frontend.src.Data.Entities.Project_Task;
 using Project_Universe.Frontend.src.Data.Entities.Task_Staff;
 using Project_Universe.Frontend.src.Data.Services;
 using Project_Universe.Frontend.src.Pages.ProjectPages;
@@ -41,6 +42,19 @@ namespace Project_Universe.Frontend.src.Pages.Project_TaskPages
             {
                 _allProject_Task = await _apiService.GetProject_TaskList();
                 Project_TaskListView.ItemsSource = _allProject_Task.OrderBy(x => x.id_project);
+                int id_postUser = UserSession.CurrentUser.id_post;
+                if (id_postUser > 1)
+                {
+                    AddButton.Visibility = Visibility.Hidden;
+                    UpdateButton.Visibility = Visibility.Hidden;
+                    DeleteButton.Visibility = Visibility.Hidden;
+                }
+                else
+                {
+                    AddButton.Visibility = Visibility.Visible;
+                    UpdateButton.Visibility = Visibility.Visible;
+                    DeleteButton.Visibility = Visibility.Visible;
+                }
             }
             catch (Exception ex)
             {

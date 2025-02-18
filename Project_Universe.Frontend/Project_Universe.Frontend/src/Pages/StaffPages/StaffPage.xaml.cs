@@ -27,7 +27,6 @@ namespace Project_Universe.Frontend.src.Pages
     public partial class StaffPage : Page
     {
         private readonly ApiService _apiService;
-
         private List<Staff> _allStaff;
         public StaffPage()
         {
@@ -42,6 +41,19 @@ namespace Project_Universe.Frontend.src.Pages
             {
                 _allStaff = await _apiService.GetStaffList();
                 StaffListView.ItemsSource = _allStaff.OrderBy(x => x.id_post);
+                int id_postUser = UserSession.CurrentUser.id_post;
+                if (id_postUser > 1)
+                {
+                    AddButton.Visibility = Visibility.Hidden;
+                    UpdateButton.Visibility = Visibility.Hidden;
+                    DeleteButton.Visibility = Visibility.Hidden;
+                }
+                else
+                {
+                    AddButton.Visibility = Visibility.Visible;
+                    UpdateButton.Visibility = Visibility.Visible;
+                    DeleteButton.Visibility = Visibility.Visible;
+                }
             }
             catch (Exception ex)
             {
