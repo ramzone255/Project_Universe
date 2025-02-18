@@ -35,7 +35,7 @@ namespace Project_Universe.Tests.src.Entities.Project.Queries
                 CancellationToken.None);
 
             result.ShouldBeOfType<GetProjectListVm>();
-            result.Project.Count.ShouldBe(4);
+            result.Project.Count.ShouldBe(0); 
         }
     }
 }

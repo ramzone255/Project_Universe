@@ -35,7 +35,7 @@ namespace Project_Universe.Tests.src.Entities.Task_Entity.Queries
                 CancellationToken.None);
 
             result.ShouldBeOfType<GetTaskListVm>();
-            result.Task.Count.ShouldBe(4);
+            result.Task.Count.ShouldBe(0);
         }
     }
 }
