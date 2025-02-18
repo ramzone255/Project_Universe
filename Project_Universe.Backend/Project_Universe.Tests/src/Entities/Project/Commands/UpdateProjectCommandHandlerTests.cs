@@ -22,7 +22,7 @@ namespace Project_Universe.Tests.src.Entities.Project.Commands
             var updatedId_contractor_company = 1;
             var updatedId_customer_company = 1;
             var updatedId_priority = 1;
-            var updatedEnd_date_project = DateOnly.FromDateTime(DateTime.Now);
+            var updatedEnd_date_project = DateTime.Now;
 
             await handler.Handle(new UpdateProjectCommand
             {

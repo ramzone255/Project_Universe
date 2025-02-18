@@ -13,11 +13,14 @@ namespace Project_Universe.Application.src.Entities.Project.Queries.GetProjectLi
     {
         public int id_project { get; set; }
         public string name_project { get; set; }
-        public DateOnly start_date_project { get; set; }
-        public DateOnly? end_date_project { get; set; }
+        public DateTime start_date_project { get; set; }
+        public DateTime? end_date_project { get; set; }
         public int id_contractor_company { get; set; }
+        public string name_contractor_company { get; set; }
         public int id_customer_company { get; set; }
+        public string name_customer_company { get; set; }
         public int id_priority { get; set; }
+        public string name_priority { get; set; }
 
         public void Mapping(Profile profile)
         {
@@ -35,7 +38,13 @@ namespace Project_Universe.Application.src.Entities.Project.Queries.GetProjectLi
                 .ForMember(noteDto => noteDto.id_customer_company,
                 opt => opt.MapFrom(note => note.id_customer_company))
                 .ForMember(noteDto => noteDto.id_priority,
-                opt => opt.MapFrom(note => note.id_priority));
+                opt => opt.MapFrom(note => note.id_priority))
+                .ForMember(noteDto => noteDto.name_contractor_company,
+                opt => opt.MapFrom(note => note.Contractor_Company.name_contractor_company))
+                .ForMember(noteDto => noteDto.name_customer_company,
+                opt => opt.MapFrom(note => note.Customer_Company.name_customer_company))
+                .ForMember(noteDto => noteDto.name_priority,
+                opt => opt.MapFrom(note => note.Priority.name_priority));
         }
     }
 }

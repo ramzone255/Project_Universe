@@ -7,9 +7,8 @@ namespace Project_Universe.WebApi.src.EntitiesDto.ProjectDto
 {
     public class UpdateProjectDto : IMapWith<UpdateProjectCommand>
     {
-        public int id_project { get; set; }
         public string name_project { get; set; }
-        public DateOnly? end_date_project { get; set; }
+        public DateTime? end_date_project { get; set; }
         public int id_contractor_company { get; set; }
         public int id_customer_company { get; set; }
         public int id_priority { get; set; }

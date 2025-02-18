@@ -1,6 +1,7 @@
 ﻿using Project_Universe.Frontend.src.Data.Entities;
 using Project_Universe.Frontend.src.Data.Entities.Task_Entity;
 using Project_Universe.Frontend.src.Data.Services;
+using Project_Universe.Frontend.src.Pages.ProjectPages;
 using Project_Universe.Frontend.src.Pages.StaffPages;
 using Project_Universe.Frontend.src.Pages.Task_StaffPages;
 using System;
@@ -54,7 +55,7 @@ namespace Project_Universe.Frontend.src.Pages.TaskPages
 
         private void ProjectClick(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new ProjectPage());
         }
 
         private void AddClick(object sender, RoutedEventArgs e)

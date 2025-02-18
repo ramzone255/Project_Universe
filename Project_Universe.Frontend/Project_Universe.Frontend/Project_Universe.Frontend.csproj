@@ -89,10 +89,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="src\Data\Entities\Contractor_Company\Contractor_Company.cs" />
+    <Compile Include="src\Data\Entities\Contractor_Company\Contractor_CompanyContain.cs" />
+    <Compile Include="src\Data\Entities\Customer_Company\Customer_Company.cs" />
+    <Compile Include="src\Data\Entities\Customer_Company\Customer_CompanyContain.cs" />
     <Compile Include="src\Data\Entities\Post\Post.cs" />
     <Compile Include="src\Data\Entities\Post\PostContain.cs" />
     <Compile Include="src\Data\Entities\Priority\Priority.cs" />
     <Compile Include="src\Data\Entities\Priority\PriorityContain.cs" />
+    <Compile Include="src\Data\Entities\Project\Project.cs" />
+    <Compile Include="src\Data\Entities\Project\ProjectContain.cs" />
     <Compile Include="src\Data\Entities\Staff\StaffContain.cs" />
     <Compile Include="src\Data\Entities\Staff\Staff.cs" />
     <Compile Include="src\Data\Entities\Status\Status.cs" />
@@ -104,6 +110,12 @@
     <Compile Include="src\Data\Entities\User\User.cs" />
     <Compile Include="src\Data\Entities\User\UserSession.cs" />
     <Compile Include="src\Data\Services\ApiService.cs" />
+    <Compile Include="src\Pages\ProjectPages\ProjectCommandsPage.xaml.cs">
+      <DependentUpon>ProjectCommandsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\Pages\ProjectPages\ProjectPage.xaml.cs">
+      <DependentUpon>ProjectPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="src\Pages\SignInPage.xaml.cs">
       <DependentUpon>SignInPage.xaml</DependentUpon>
     </Compile>
@@ -137,6 +149,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="src\Pages\ProjectPages\ProjectCommandsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\Pages\ProjectPages\ProjectPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="src\Pages\SignInPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

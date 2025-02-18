@@ -9,8 +9,8 @@ namespace Project_Universe.WebApi.src.EntitiesDto.ProjectDto
     public class CreateProjectDto : IMapWith<CreateProjectCommand>
     {
         public string name_project { get; set; }
-        public DateOnly start_date_project { get; set; }
-        public DateOnly? end_date_project { get; set; }
+        public DateTime start_date_project { get; set; }
+        public DateTime? end_date_project { get; set; }
         public int id_contractor_company { get; set; }
         public int id_customer_company { get; set; }
         public int id_priority { get; set; }

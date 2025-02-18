@@ -25,7 +25,7 @@ namespace Project_Universe.Tests.src.Entities.Project.Common
                 {
                     id_project = 1,
                     name_project = "Alfa",
-                    start_date_project = DateOnly.FromDateTime(DateTime.Today),
+                    start_date_project = DateTime.Now,
                     end_date_project = null,
                     id_contractor_company = 1,
                     id_customer_company = 1,
@@ -36,8 +36,8 @@ namespace Project_Universe.Tests.src.Entities.Project.Common
                 {
                     id_project = 2,
                     name_project = "Omega",
-                    start_date_project = DateOnly.FromDateTime(DateTime.Today),
-                    end_date_project = DateOnly.FromDateTime(DateTime.Today),
+                    start_date_project = DateTime.Now,
+                    end_date_project = DateTime.Now,
                     id_contractor_company = 2,
                     id_customer_company = 2,
                     id_priority = 2
@@ -47,8 +47,8 @@ namespace Project_Universe.Tests.src.Entities.Project.Common
                 {
                     id_project = id_project_for_delete,
                     name_project = "Sigma",
-                    start_date_project = DateOnly.FromDateTime(DateTime.Today),
-                    end_date_project = DateOnly.FromDateTime(DateTime.Today),
+                    start_date_project = DateTime.Now,
+                    end_date_project = DateTime.Now,
                     id_contractor_company = 3,
                     id_customer_company = 3,
                     id_priority = 3
@@ -58,7 +58,7 @@ namespace Project_Universe.Tests.src.Entities.Project.Common
                 {
                     id_project = id_project_for_update,
                     name_project = "Beta",
-                    start_date_project = DateOnly.FromDateTime(DateTime.Today),
+                    start_date_project = DateTime.Now,
                     end_date_project = null,
                     id_contractor_company = 4,
                     id_customer_company = 4,

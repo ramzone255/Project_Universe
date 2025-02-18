@@ -1,7 +1,10 @@
 ﻿using Project_Universe.Frontend.src.Data.Entities;
+using Project_Universe.Frontend.src.Data.Entities.Contractor_Company;
+using Project_Universe.Frontend.src.Data.Entities.Customer_Company;
 using Project_Universe.Frontend.src.Data.Entities.Entities_Contain;
 using Project_Universe.Frontend.src.Data.Entities.Post;
 using Project_Universe.Frontend.src.Data.Entities.Priority;
+using Project_Universe.Frontend.src.Data.Entities.Project;
 using Project_Universe.Frontend.src.Data.Entities.Status;
 using Project_Universe.Frontend.src.Data.Entities.Task_Entity;
 using Project_Universe.Frontend.src.Data.Entities.Task_Staff;
@@ -104,6 +107,30 @@ namespace Project_Universe.Frontend.src.Data.Services
 
         }
 
+        // Contractor_Company Entity
+
+        public async Task<List<Contractor_Company>> GetContractor_CompanyList()
+        {
+            var response = await _httpClient.GetAsync("api/Contractor_Company/List");
+            response.EnsureSuccessStatusCode();
+
+            var result = await response.Content.ReadFromJsonAsync<Contractor_CompanyContain>();
+            return result?.contractor_company ?? new List<Contractor_Company>();
+
+        }
+
+        // Customer_Company Entity 
+
+        public async Task<List<Customer_Company>> GetCustomer_CompanyList()
+        {
+            var response = await _httpClient.GetAsync("api/Customer_Company/List");
+            response.EnsureSuccessStatusCode();
+
+            var result = await response.Content.ReadFromJsonAsync<Customer_CompanyContain>();
+            return result?.customer_company ?? new List<Customer_Company>();
+
+        }
+
         // Task Entity
 
         public async Task<List<Task_Entity>> GetTaskList()
@@ -161,6 +188,36 @@ namespace Project_Universe.Frontend.src.Data.Services
         public async Task DeleteTask_Staff(int id_task_staff)
         {
             var response = await _httpClient.DeleteAsync($"api/Task_Staff/Delete/{id_task_staff}");
+            response.EnsureSuccessStatusCode();
+        }
+
+        // Project Entity
+
+        public async Task<List<Project>> GetProjectList()
+        {
+            var response = await _httpClient.GetAsync("api/Project/List");
+            response.EnsureSuccessStatusCode();
+
+            var result = await response.Content.ReadFromJsonAsync<ProjectContain>();
+            return result?.project ?? new List<Project>();
+
+        }
+
+        public async Task CreateProject(Project project)
+        {
+            var response = await _httpClient.PostAsJsonAsync($"api/Project/Create", project);
+            response.EnsureSuccessStatusCode();
+        }
+
+        public async Task UpdateProject(Project project)
+        {
+            var response = await _httpClient.PutAsJsonAsync($"api/Project/Update/{project.id_project}", project);
+            response.EnsureSuccessStatusCode();
+        }
+
+        public async Task DeleteProject(int id_project)
+        {
+            var response = await _httpClient.DeleteAsync($"api/Project/Delete/{id_project}");
             response.EnsureSuccessStatusCode();
         }
     }
