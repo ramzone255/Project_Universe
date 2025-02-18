@@ -13,7 +13,11 @@ namespace Project_Universe.Application.src.Entities.Task_Staff.Queries.GetTask_S
     {
         public int id_task_staff { get; set; }
         public int? id_task { get; set; }
+        public string? name_task { get; set; }
         public int? id_staff { get; set; }
+        public string? name_staff { get; set; }
+        public string? lastname_staff { get; set; }
+        public string? patronymic_staff { get; set; }
 
         public void Mapping(Profile profile)
         {
@@ -23,7 +27,15 @@ namespace Project_Universe.Application.src.Entities.Task_Staff.Queries.GetTask_S
                 .ForMember(noteDto => noteDto.id_task,
                 opt => opt.MapFrom(note => note.id_task))
                 .ForMember(noteDto => noteDto.id_staff,
-                opt => opt.MapFrom(note => note.id_staff));
+                opt => opt.MapFrom(note => note.id_staff))
+                .ForMember(noteDto => noteDto.name_task,
+                opt => opt.MapFrom(note => note.Task.name_task))
+                .ForMember(noteDto => noteDto.name_staff,
+                opt => opt.MapFrom(note => note.Staff.name_staff))
+                .ForMember(noteDto => noteDto.lastname_staff,
+                opt => opt.MapFrom(note => note.Staff.lastname_staff))
+                .ForMember(noteDto => noteDto.patronymic_staff,
+                opt => opt.MapFrom(note => note.Staff.patronymic_staff));
         }
     }
 }

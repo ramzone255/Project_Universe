@@ -99,6 +99,8 @@
     <Compile Include="src\Data\Entities\Status\StatusContain.cs" />
     <Compile Include="src\Data\Entities\Task_Entity\Task_Entity.cs" />
     <Compile Include="src\Data\Entities\Task_Entity\Task_EntityContain.cs" />
+    <Compile Include="src\Data\Entities\Task_Staff\Task_Staff.cs" />
+    <Compile Include="src\Data\Entities\Task_Staff\Task_StaffContain.cs" />
     <Compile Include="src\Data\Entities\User\User.cs" />
     <Compile Include="src\Data\Entities\User\UserSession.cs" />
     <Compile Include="src\Data\Services\ApiService.cs" />
@@ -116,6 +118,12 @@
     </Compile>
     <Compile Include="src\Pages\TaskPages\TaskPage.xaml.cs">
       <DependentUpon>TaskPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\Pages\Task_StaffPages\Task_StaffCommandsPage.xaml.cs">
+      <DependentUpon>Task_StaffCommandsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\Pages\Task_StaffPages\Task_StaffPage.xaml.cs">
+      <DependentUpon>Task_StaffPage.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -146,6 +154,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="src\Pages\TaskPages\TaskPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\Pages\Task_StaffPages\Task_StaffCommandsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\Pages\Task_StaffPages\Task_StaffPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -215,6 +231,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="src\Images\Staff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="src\Images\Task_Staff_Img.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,6 +1,7 @@
 ﻿using Project_Universe.Frontend.src.Data.Entities;
 using Project_Universe.Frontend.src.Data.Services;
 using Project_Universe.Frontend.src.Pages.StaffPages;
+using Project_Universe.Frontend.src.Pages.Task_StaffPages;
 using Project_Universe.Frontend.src.Pages.TaskPages;
 using System;
 using System.Collections.Generic;
@@ -97,6 +98,11 @@ namespace Project_Universe.Frontend.src.Pages
         private void TaskClick(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new TaskPage());
+        }
+
+        private void Task_StaffClick(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Task_StaffPage());
         }
     }
 }

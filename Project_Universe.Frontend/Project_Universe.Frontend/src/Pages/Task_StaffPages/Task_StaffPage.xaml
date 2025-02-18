@@ -1,12 +1,12 @@
-﻿<Page x:Class="Project_Universe.Frontend.src.Pages.TaskPages.TaskPage"
+﻿<Page x:Class="Project_Universe.Frontend.src.Pages.Task_StaffPages.Task_StaffPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:Project_Universe.Frontend.src.Pages.TaskPages"
+      xmlns:local="clr-namespace:Project_Universe.Frontend.src.Pages.Task_StaffPages"
       mc:Ignorable="d" 
       d:DesignHeight="403" d:DesignWidth="800"
-      Title="TaskPage">
+      Title="Task_StaffPage">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -25,38 +25,24 @@
                 </LinearGradientBrush>
             </StackPanel.Background>
             <StackPanel Height="250">
-                <Button Height="50" Width="50" Background="Transparent" Margin="0,15,0,0" Click="ProjectClick">
-                    <Image Source="/src/Images/Project.png"/>
+                <Button Height="50" Width="50" Background="Transparent" Margin="0,15,0,0" Click="BackClick">
+                    <Image Source="/src/Images/Return_Back.png"/>
                     <Button.ToolTip>
                         <ToolTip Height="30" Style="{StaticResource RoundToolsTemplate}">
-                            ㅤㅤПроекты
-                        </ToolTip>
-                    </Button.ToolTip>
-                </Button>
-                <Button Height="50" Width="50" Background="Transparent" Margin="0,15,0,0" Click="StaffClick">
-                    <Image Source="/src/Images/Staff.png"/>
-                    <Button.ToolTip>
-                        <ToolTip Height="30" Style="{StaticResource RoundToolsTemplate}">
-                            ㅤㅤСотрудники
+                            ㅤㅤНазад
                         </ToolTip>
                     </Button.ToolTip>
                 </Button>
             </StackPanel>
         </StackPanel>
         <StackPanel Grid.Column="1" Background="White">
-            <ListView x:Name="TaskListView" Margin="10" Height="300">
+            <ListView x:Name="Task_StaffListView" Margin="10" Height="300">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="Название" DisplayMemberBinding="{Binding name_task}" Width="122"/>
-                        <GridViewColumn Header="Описание" Width="304">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding comment}" TextWrapping="Wrap"/>
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
-                        <GridViewColumn Header="Статус" DisplayMemberBinding="{Binding name_status}" Width="142"/>
-                        <GridViewColumn Header="Приоритет" DisplayMemberBinding="{Binding name_priority}" Width="142"/>
+                        <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding name_staff}" Width="102"/>
+                        <GridViewColumn Header="Фамилия" DisplayMemberBinding="{Binding lastname_staff}" Width="122"/>
+                        <GridViewColumn Header="Отчество" DisplayMemberBinding="{Binding patronymic_staff}" Width="122"/>
+                        <GridViewColumn Header="Задача" DisplayMemberBinding="{Binding name_task}" Width="348"/>
                     </GridView>
                 </ListView.View>
             </ListView>
@@ -73,7 +59,7 @@
                         <Image Source="/src/Images/Add.png"/>
                         <Button.ToolTip>
                             <ToolTip Height="30" Style="{StaticResource RoundToolsTemplate}">
-                                ㅤㅤДобавить задачуㅤㅤ
+                                ㅤㅤПрикрепить сотрудника к задачеㅤㅤ
                             </ToolTip>
                         </Button.ToolTip>
                     </Button>
@@ -81,7 +67,7 @@
                         <Image Source="/src/Images/Update.png"/>
                         <Button.ToolTip>
                             <ToolTip Height="30" Style="{StaticResource RoundToolsTemplate}">
-                                ㅤㅤРедактироватьㅤзадачуㅤ
+                                ㅤㅤРедактироватьㅤприкреплениеㅤ
                             </ToolTip>
                         </Button.ToolTip>
                     </Button>
@@ -89,20 +75,13 @@
                         <Image Source="/src/Images/Delete.png"/>
                         <Button.ToolTip>
                             <ToolTip Height="30" Style="{StaticResource RoundToolsTemplate}">
-                                ㅤㅤУдалить задачу
+                                ㅤㅤУдалить прикрепление
                             </ToolTip>
                         </Button.ToolTip>
                     </Button>
                 </StackPanel>
                 <StackPanel Width="362" Margin="0,-83,0,0" HorizontalAlignment="Right" Height="83">
-                    <Button Height="50" Width="50" Background="Transparent" Margin="0,15,250,0" Click="Task_StaffClick">
-                        <Image Source="/src/Images/Task_Staff_Img.png"/>
-                        <Button.ToolTip>
-                            <ToolTip Height="30" Style="{StaticResource RoundToolsTemplate}">
-                                ㅤㅤРаспределение задач
-                            </ToolTip>
-                        </Button.ToolTip>
-                    </Button>
+
                 </StackPanel>
             </StackPanel>
         </StackPanel>

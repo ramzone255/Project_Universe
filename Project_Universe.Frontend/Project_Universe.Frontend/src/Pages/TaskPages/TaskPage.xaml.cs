@@ -2,6 +2,7 @@
 using Project_Universe.Frontend.src.Data.Entities.Task_Entity;
 using Project_Universe.Frontend.src.Data.Services;
 using Project_Universe.Frontend.src.Pages.StaffPages;
+using Project_Universe.Frontend.src.Pages.Task_StaffPages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,7 +39,7 @@ namespace Project_Universe.Frontend.src.Pages.TaskPages
             try
             {
                 _allTask = await _apiService.GetTaskList();
-                TaskListView.ItemsSource = _allTask.OrderBy(x => x.id_priority);
+                TaskListView.ItemsSource = _allTask.OrderByDescending(x => x.id_priority);
             }
             catch (Exception ex)
             {
@@ -96,6 +97,11 @@ namespace Project_Universe.Frontend.src.Pages.TaskPages
             {
                 MessageBox.Show("Выберите задание для удаления.");
             }
+        }
+
+        private void Task_StaffClick(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Task_StaffPage());
         }
     }
 }

@@ -4,6 +4,7 @@ using Project_Universe.Frontend.src.Data.Entities.Post;
 using Project_Universe.Frontend.src.Data.Entities.Priority;
 using Project_Universe.Frontend.src.Data.Entities.Status;
 using Project_Universe.Frontend.src.Data.Entities.Task_Entity;
+using Project_Universe.Frontend.src.Data.Entities.Task_Staff;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -130,6 +131,36 @@ namespace Project_Universe.Frontend.src.Data.Services
         public async Task DeleteTask(int id_task)
         {
             var response = await _httpClient.DeleteAsync($"api/Task/Delete/{id_task}");
+            response.EnsureSuccessStatusCode();
+        }
+
+        // Task_Staff Entity
+
+        public async Task<List<Task_Staff>> GetTask_StaffList()
+        {
+            var response = await _httpClient.GetAsync("api/Task_Staff/List");
+            response.EnsureSuccessStatusCode();
+
+            var result = await response.Content.ReadFromJsonAsync<Task_StaffContain>();
+            return result?.task_staff ?? new List<Task_Staff>();
+
+        }
+
+        public async Task CreateTask_Staff(Task_Staff task_staff_entity)
+        {
+            var response = await _httpClient.PostAsJsonAsync($"api/Task_Staff/Create", task_staff_entity);
+            response.EnsureSuccessStatusCode();
+        }
+
+        public async Task UpdateTask_Staff(Task_Staff task_staff_entity)
+        {
+            var response = await _httpClient.PutAsJsonAsync($"api/Task_Staff/Update/{task_staff_entity.id_task_staff}", task_staff_entity);
+            response.EnsureSuccessStatusCode();
+        }
+
+        public async Task DeleteTask_Staff(int id_task_staff)
+        {
+            var response = await _httpClient.DeleteAsync($"api/Task_Staff/Delete/{id_task_staff}");
             response.EnsureSuccessStatusCode();
         }
     }
